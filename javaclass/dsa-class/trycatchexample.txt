@@ -1,0 +1,111 @@
+three ways of writng Exception Message
+1.printStackTrace()
+
+when we need all three information  i-name of exception
+				   ii-Description of exception
+				   iii-stack trace info of exception
+
+
+
+2.Refrence of (Exception ex) class or its Sub class
+
+we need only two info name and Decription of exception
+
+s.o.p(ex);
+s.o.p(ex.toString());
+
+3.getMessage();
+when we need only description of exception.
+
+
+why do e need mutiple catch block for single try block
+
+common mistake programmmer do while handling exception
+try block
+{
+statement 1
+statement 2
+statement 3
+.
+.
+.
+.
+.
+statement 100
+
+
+}catch(....Exception e)
+size of try block should contain as minimum statement as possible.
+
+try
+{
+statement 1
+
+}catch(ArthematicException e)
+{}
+
+try
+{
+statement 2
+
+}catch(.........Exception e)
+{}
+during exception handling exception may occur in try block , catch block  and finally block.
+
+
+
+try catch finally block
+----> when there is no exception first try will excute and then fianlly will execute.
+-----> when there is an exception is in try block  then catch will execute and lastly finally will execute.
+
+finally{}
+
+
+package javaclass;
+
+public class ExampleFinally {
+    public static void main(String[] args) {
+        try{
+            //case1
+            //create db connection
+            //read data from database
+            //close the connection
+            //if an exceeption occur while reading the data from database then exception will ocuure and conection will never close.
+            //in this connection will not be able to close even if we handle the exception properly.
+
+            //case2
+            //create db connection
+
+            //if an exceeption occur while reading the data from database then exception will ocuure and conection will never close.
+            //in this connection will not be able to close even if we handle the exception properly.
+            //if an exception not occur then catch will never execute
+
+            //case1
+            //create db connection
+            //read data from database
+
+            //if an exceeption occur while reading the data from database then exception will ocuure and conection will never close.
+            //in this connection will not be able to close even if we handle the exception properly.
+        }
+        catch{
+             //case2
+            //close the connection
+
+
+        }
+        finally
+        {
+            //case3
+
+            //close the connection
+
+            exeception will occur or not finally will execute.
+
+        }
+    }
+}
+
+--->does finally block always execute 
+ 
+
+

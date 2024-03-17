@@ -1,0 +1,3 @@
+user=aman
+password=123
+country=india

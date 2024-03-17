@@ -1,0 +1,19 @@
+Rule method overriding in excepton handling
+
+Rule1:- if super class method does not declare an exception subclass overridden cannot have checked exception.
+
+	java: show() in javaclass.Child cannot override show() in javaclass.Parent12
+        overridden method does not throw java.io.FileNotFoundException
+
+        if super class method does not declare an exception subclass overridden can have unchecked exception.
+
+
+
+
+
+Rule2:-if super class method does  declare an exception 
+
+
+       (i)subclass overridden methodcan declare the  same  parent class exception.
+       (ii)subclass overridden method can declare no exception.
+       (iii)subclass overridden method cannot declare the parent class exception.

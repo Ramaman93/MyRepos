@@ -1,0 +1,54 @@
+Difrrence between final ,finally and finalize
+final- It is a modifier can be used with
+        class:- final class Abc{} when class decalered with final modifier in can not be inherited or it cannot be subclass.
+
+		finalexample.java:6: error: cannot inherit from final finalExample
+		class finalInit extends finalExample
+
+
+	method:- final method cannot be overridden, child class cannot override final method of parent class. 
+
+			finalexample.java:33: error: show() in finalInit cannot override show() in finalExample
+                        public void show()
+
+
+
+        variable :- varibale decalred as final cannot be changed or its value cannot be changed was initialized.it can be
+			used with intance , local and static variable.
+
+
+finally:-try{risky code that may cause exception}
+	  catch(Exception h)
+           {exception handling code}
+           finally
+             {cleanup code related to try block closing the connection
+		
+               }
+
+
+finalize:-
+unreffrenced object can  two types
+
+new Student(); :- it is eligible for garabage collector.
+Student s1=new Student();
+s1=null;
+
+it is also eligible garbage collector.
+Genrally garbage collector is called by the jvm, whenever jvm feels there are objects (unrefrenced object) which need removed in order  to realese the memory.
+however we can request jvm to call garbage collector explicitly but there is no gurantee jvm will accept our request or not.
+
+Garbage collector can be called manually in two ways 
+
+1.by using System class
+2.by using Runtime class
+
+whenever garabge collector is called GC executes finalize method before removing unrefrenced object from the memory.
+Gc calls finalize method only once for the unrefrenced and for a given object.
+
+
+protype:-
+
+protected void finalize() throws Throwable
+
+
+by using Runtime class

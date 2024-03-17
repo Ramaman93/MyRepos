@@ -1,0 +1,33 @@
+Various possible combination of try catch and finally block
+1.try {}
+catch(X e){} //where X denote Exception or its subclass and e denote refrence
+2.try{}
+  catch1(X e){}
+  catch2(Y e){}
+3.try{}
+  catch1(X e){}
+  catch2(X e){}  // invalid because  exception X has already been caught
+4. try{}
+  catch1(X e){}
+  try{}
+  catch2(X e){}
+5.try{}
+  finally{}
+6.try{} // invalid java: 'try' without 'catch', 'finally' or resource declarations
+7.finally{}//invalid try is mandatory
+8.catch{}//invalid try is mandatory 
+9.try{}
+  catch1(X e){}
+  finally{}
+  
+10.try{}
+  finally{}
+  catch1(X e){}   error: 'catch' without 'try'
+        catch (Exception e) {
+        ^
+1 error 
+
+11.try{}
+try{}
+catch(){}
+finally{}

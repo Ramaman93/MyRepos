@@ -1,0 +1,1551 @@
+collection:
+
+
+
+Why do we need a collection?
+variable:- in a varibale we can store only one value at time.
+int a=20;
+a=40;
+means old value is replaced by a new value.i.e(20 is replaced by 40)
+now there is no way to get old value back.to overcome this probelm
+we use an array.
+
+for storing mutiple of same type value inder single name.
+int a[]={1,2,3};
+
+Diffrence b/w Collection,Collections,Collection frameWork.
+
+
+
+
+Limitation of Array:- 
+--->1.fixed sized:-cannot modify size of array once decalred.
+
+
+int a[]=new int[size];
+case 1:-suppose we have decalred an array with the size of 10 but we have to store only 5 values.so there is waste of memory
+in this case.
+case 2:-suppose we have decalred an array with the size of 100 but we have to store only 101 values.so there is 
+in  (shortage of memory) in this case.
+
+In case of collection collection size can grow or shrink
+
+--->2.Array can store homogenous data type.
+int a[]=new int [5];
+it can store only integer type.
+float a[]=new int[5]
+it can store only float type.
+Array can store hetrogenous datatype also.
+Object a[]=new Object [5];
+
+Student s=new Student();
+Student s[]=new Student[5]();
+
+which is better Array or Collection?
+
+Performence wise collection is not recommended.
+Memory wise collection is recommended.
+
+0a[2]
+1a[3]
+2a[4]
+3a[5]
+4a[5]
+5a[6]
+
+
+----> it is feature provided by java language but collection is api feature.
+
+Collection:- it is recommended when we want to use a group of object as an entity.
+ Framework:- collection of classes and interface.
+
+Collection dont have direct implementation class.
+
+Collection FrameWork:-  it contains several classes and interfaces that can use to represent a group of object as
+an entity.
+
+Collections:- it is Utility class   
+
+                Arrays --->
+
+
+COllections implementation class
+
+1- ArrayList:- under line datastructure is resizable Array
+
+  public java.util.ArrayList(int);when we Specify the size ex-15, here 15 is current size.
+
+ArrayList ar =new ArrayList(15);
+
+newcapacity=15*(3/2)+1=23.5=24
+
+trimtosize():- method is to capacity equivalent to size when capcity >>> Size.
+
+
+  public java.util.ArrayList();:-When we use parameter less constructor the default size is 10.threshold value of genrating new capacity is 
+ArrayList ar =new ArrayList();
+  newcapacity= (Currentcapacity *(3/2)+1)=10*(3/2)+1=16
+
+
+  public java.util.ArrayList(java.util.Collection<? extends E>);:- it is used to convert any collection object type into equivalent array list object type.
+
+
+LinkList llist=new LinkList();
+llist.add(1);
+ArrayList ar= new ArrayList(llist);
+
+System.out.println():-
+System is a class which is java.lang pakage in this class  there is a refrence PrintStrem
+
+
+class System
+{
+final static PrintStream out;
+}
+
+class PrintStream 
+{
+void println()
+{
+
+}
+
+}
+ 
+
+
+  ArrayList arrayList=new ArrayList();
+        arrayList.add(1);
+        arrayList.add("hello");
+        arrayList.add(23.4);
+        arrayList.add(1);
+        arrayList.add(true);
+
+        System.out.println(arrayList);
+
+// whenever we print non null refrence of array list in our case  System.out.println(arrayList);  the overridden toString() 
+method for case of collection is overridden method of toString is overrided in such a way it includs [in starting at end of list] 
+
+
+
+//All the Collections implements Seriliable Interface and Clonable Interface by Default.
+
+//Collection im c++ is calledcontainer.
+
+Collection is used to hold and transfer object from one place to another place over the network.
+in order to transfer the object from one place to another place we must have to serialize the object.for this purspose 
+collection is implemented serializable.
+
+Why  we use Serializable and Clonable?
+
+Serializable and Clonable are marker interface.
+
+public interface java.io.Serializable {
+}
+
+public interface java.lang.Cloneable {
+}
+
+In order to transfer a object from one network to other network the object must be serialized.
+for this purpose collection has already implemented serailizable interface.
+once object reached to other network at other place a clone of object need to created in order to perform any modification on the object
+so that we can preserve original copy in case any unwanted modification an changed we can recove original data.
+  
+
+What is RandomAccess interface?
+
+public interface java.util.RandomAccess {
+}
+
+present in java.util package is Marker Interface.i.e having no methods inside it.
+
+
+
+ArrayList and Vector classes implements RandomAccess interface so that they can access any random 
+element.
+
+to check programetically wheather a class is implementing any interface or not.
+
+public class Arraylistex12 {
+    public static void main(String[] args) {
+        ArrayList arrayList=new ArrayList();
+
+        System.out.println(arrayList instanceof Serializable);
+        System.out.println(arrayList instanceof Cloneable);
+        System.out.println(arrayList instanceof RandomAccess);
+    }
+}
+
+
+which Collection  classes does not allow Hetrogenous data?
+
+1.Tree Set
+2.Tree Map 
+
+
+Linked list implement serializable and clonalble but not random access.
+
+
+
+Vector Class :-under line data straucture is resizable array.
+		Dublicate and null values are allowed
+		hetrogenous data is allowed
+		implements Serializable Clonalble and RandomAccess.
+		Vector are synchronized hence vector hence it threads safe.
+		best choice for retreveal of data
+some vector specfic method
+add();
+add(int,Object);
+addelement();
+default capcity is 10 as new element is added after 10th element its size gets (current capcity *2).
+
+4 construtor
+
+Vector list=new Vector();
+Vector list=new Vector(int size); // if we know the minimum size to store the element to be added,that can be exceeded later.
+Vector list=new Vector(int size , increment );// if we know much data we want add after the intial size. 
+Vector list=new Vector(Collection Object);// equivalent vector object for any other Collection object.
+
+      public static void main(String[] args) {
+//        Vector ee=new Vector();
+//        System.out.println(ee.capacity());
+//        System.out.println(ee.size());
+//        for (int i=1;i<=10;i++) {
+//        ee.add(i);
+//        }
+//        System.out.println(ee.capacity());
+//        System.out.println(ee.size());
+//        ee.add(2);
+//
+//        System.out.println(ee.capacity());
+    //    System.out.println(ee.size());
+     //   ee.addElement(23);// it is vector specific method defined at 1.0 version does the same work
+
+
+        Vector nelist=new Vector(5,3);
+        System.out.println(nelist.capacity());//5
+        System.out.println(nelist.size());//0
+        for (int i=1;i<=5;i++) {
+            nelist.add(i);
+
+
+        }
+        System.out.println(nelist.capacity());//5
+        System.out.println(nelist.size());//5
+        nelist.add(2);
+        nelist.add(3);
+        nelist.add(5);
+        System.out.println(nelist.capacity());//8
+        System.out.println(nelist.size());//8
+        nelist.add(3); // new output will
+        System.out.println(nelist.capacity());  //11
+        System.out.println(nelist.size());//9
+
+
+    }
+
+
+
+
+Stack :- Stack is a child class of Vector.It is designed for LIFO.
+		only have single constructor .
+		most imp method of stack 
+                push():- it is used for inserting element to the stack.
+		pop():-it is used to return and delete the element from the top of stack.
+		peak():- it is used to return the element from the top of stack.
+	        int search(Object ref):-if the specfied elemnt is available it will return the offset of the element and if it is not available it will return -1.
+
+
+Cursor - three types cursor available in java.
+          1.Enumeration. (introduced java 1.0 in legacy classes such as Vector).- it is used to access the object one by one from old collection object.
+
+Syntax for creating Enumeration object - 
+
+Vector vec=new Vector();
+Enumeration obj=vec.elements();
+
+  public abstract boolean hasMoreElements();
+  public abstract E nextElement();
+  public default java.util.Iterator<E> asIterator();
+
+can be used only with stack and vector.
+we can only read (in forward only direction ) not move or delete a data.
+
+       	  2. Iterartor.:- it is a universal cursor means we can apply iterrator for any collection object. we can perform both read and remove operation using iterator.
+                          it has one extra method i.e remove().
+
+ public abstract boolean hasNext();
+  public abstract E next();
+  public default void remove();
+  public default void forEachRemaining(java.util.function.Consumer<? super E>);
+
+
+Syntax:- ArrayList list=new ArrayList();
+        Iterarator itr= list.iterator();
+
+
+	  3.List Iterator.:- we can perform add,remove,replace and  move 
+			     either to the forward direction and to the backward direction and hence it is called by-directional cursor.
+				It is the most powerful cursor and has one drawback it is applicable only for list implementated classes object.
+
+public abstract boolean hasNext();
+  public abstract E next();
+  public abstract boolean hasPrevious();
+  public abstract E previous();
+  public abstract int nextIndex();
+  public abstract int previousIndex();
+  public abstract void remove();
+  public abstract void set(E);
+  public abstract void add(E);
+
+
+Syntax :- we can create list iterator object by using list iterator method 
+ArrayList list=new ArrayList();
+       ListIterarator itr= list.iterator();
+
+
+
+
+Set:-   .it is child interface of collection .
+	.dubplicates are not allowed.
+	.innertion order is not preserved.
+	.it does contain any method we have to only use collection interface  method.
+
+
+
+Hashset:- 
+	.underline datastructure of set is hashtable.
+	.dublicates are not allowed if try to insert any dublicate value we wont get any compile time error or runtime error.
+	,add method simply return false. 
+	.Innertion order is not preserved but all object will inserted based on some hashcode of object.
+	.Hetrogenus object is allowed .
+	.null inneration is possible.
+	.hashset is best choice if our frequent requirment is to perform seraching operation.
+
+Constructor of hashset:-
+
+ public java.util.HashSet();:- create default object with initial capacity 16. fill ratio(load factor) is (0.75). 
+
+ public java.util.HashSet(int);create default object with int initial capacity as parameter. fill ratio(load factor) is (0.75). 
+
+ public java.util.HashSet(int, float);create default object with int initial capacity as parameter and load factor as second paramter. 
+
+
+
+  public java.util.HashSet(java.util.Collection);it is used for converting any other collection type into hashset type.
+
+  
+
+
+
+        HashSet set1=new HashSet();
+        System.out.println(  set1.add(1)); true
+        set1.add(2);
+        System.out.println(  set1.add(1)); false
+        set1.add("hello");
+        System.out.println(  set1.add(1)); false
+
+
+        System.out.println(set1);
+
+
+
+Linked HashSet:-It is child class of HashSet.
+		It is introduced in java 1.4 onwards.
+
+		it is best to develop cache based application where dublicates are not and insertion order is preserved.
+
+
+
+                           Hashset                                  LinkedhashSet
+
+--->underline datastruture is HashTable.                        --->the underline datastruture of linkedhashset is HashTable + LinkedList(Hybrid data struture)
+--->introduced in 1.2						--->in 1.4 java
+--->insertion order is not preserved				--->insertion order is preserved.
+
+
+
+ public java.util.LinkedHashSet(int, float);
+  public java.util.LinkedHashSet(int);
+  public java.util.LinkedHashSet();
+  public java.util.LinkedHashSet(java.util.Collection<? extends E>);
+  public java.util.Spliterator<E> spliterator();
+
+
+Sorted Set :- it is child interface of a set , if we want to represent a group of individual object , according to some sorting order and dublicates are not allowed then 
+we should go for sorted set some of the most important sorted set specfic method
+
+1.first()
+2.last()
+3.headset()
+4.tailset()
+5.subset()
+5.comparator(): default natural sorting order for number,by default it is acending order. for string it alphabatically rule of dictionary.
+
+
+we can apply the above method on sorted set implemented class i.e TreeSet
+
+
+TreeSet:-.underline data struture of TreeSet BalancedTree.
+	 .Dublicates are not allowed.
+	 .Insertion order is not preserved.
+	 .but all the object is inserted according to some sorting order.
+	 .if try add hetrogenous object we will get a run time exception i.e class cast exception (CCE). 
+       	.we can insert null value till java 6 versionbut only once under some special circumtances. Now java 6 is not allowed.
+
+
+  public java.util.TreeSet();:-pramaterless constructor or an empty conctructor then element will inserted according to default natural sorting order.
+
+  public java.util.TreeSet(java.util.Comparator comp);element will be inserted according customize sorting order.
+  public java.util.TreeSet(java.util.Collection c)
+  public java.util.TreeSet(java.util.SortedSet ss):-it takes sorted set refrence and get treeset
+
+		
+if we are depending on default sorting order then object should be homogenuous and object must implements comparable interface otherwise we will get 
+runtime exception saying class cast exception.
+
+an object is said to be comparable if an only if the class implements comparable interface. String and all wrapper implements comparable interface.
+
+
+
+
+
+
+
+Comparable Interface:- public abstract int compareTo(T);
+
+their are three possiblity 
+
+obj1.compareto(obj.2); if obj1 has to come before to obj2 then it will returm negative value.
+			if obj1 has to come after to obj2 then it will returm positive value.
+			if obj1 = obj2 then it will returm ZERO.
+
+public class Comparatorexe {
+    public static void main(String[] args) {
+
+        System.out.println("a".compareTo("z"));    output -25	
+        System.out.println("z".compareTo("a"));    output 25	
+        System.out.println("a".compareTo("a"));    output 0	
+
+
+    }
+}
+
+        TreeSet ad=new TreeSet();
+        ad.add("a");//ascii code 97  element we trying to insert is obj1 and the element that is already there from which comparison is
+                    //  done that is obj2.
+        
+                    //TreeSet adq=new TreeSet();
+                   // adq.add("a"); no comparison is required.
+                    //adq.add("A"); A.compareto(a).
+                    //adq.add("z"):z.compareto(a).
+        
+        //suppose we are implementing default natural order jvm will compareto() method in add() method at inserting object
+        // to tree set.
+        //Supppose we are not satisfy with default natural sorting order.
+        //suppose defualt sorting order is not available.
+        // then we define customize sorting order our own cutomize sorting order using comparator interface
+     two method   //public abstract int compare(T, T);
+                  //public abstract boolean equals(java.lang.Object);
+
+package javaclass.Collections;
+
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class Employe implements Comparable{
+    Long id;
+    String name;
+
+    public Employe(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+       Long id1=this.id;
+        Employe obj2 =(Employe) o;
+
+        Long id2=obj2.id;
+        if(id1>id2)
+        {
+            return 1;
+        }
+        else if (id1<id2)
+        {
+            return -1;
+        }
+        else
+            return 0;
+    }
+
+    @Override
+    public String toString() {
+        return id+" "+name;
+    }
+
+    public static void main(String[] args) {
+      Employe emp1=new Employe(1L,"emp1");
+        Employe emp2=new Employe(2L,"emp2");
+        Employe emp3=new Employe(3L,"emp3");
+        Employe emp4=new Employe(8L,"emp8");
+        Employe emp5=new Employe(3L,"emp3");
+
+        TreeSet ts=new TreeSet();
+        ts.add(emp1);  //  no comparison 
+        ts.add(emp2);//  jvm will call compareto() call emp1.compareto(emp2)
+                        // long id1=emp1.id;
+                        //long id2=emp2.id;
+      
+        ts.add(emp3);
+        ts.add(emp4);
+        ts.add(emp5);
+
+        System.out.println(ts);
+
+    }
+}
+
+
+
+default sorting using name as refrence 
+
+package javaclass.Collections;
+
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class Employe implements Comparable{
+    Long id;
+    String name;
+
+    public Employe(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+       String  name1=this.name;
+        Employe obj2 =(Employe) o;
+
+        String  name2=obj2.name;
+      return - name2.compareTo(name1);
+    }
+
+    @Override
+    public String toString() {
+        return id+" "+name;
+    }
+
+    public static void main(String[] args) {
+      Employe emp1=new Employe(1L,"naman");
+        Employe emp2=new Employe(2L,"badal");
+        Employe emp3=new Employe(3L,"farookh");
+        Employe emp4=new Employe(8L,"eiti");
+        Employe emp5=new Employe(3L,"modi");
+
+        TreeSet ts=new TreeSet();
+        ts.add(emp1);  //  no comparison
+        ts.add(emp2);//  jvm will call compareto() call emp1.compareto(emp2)
+                        // long id1=emp1.id;
+                        //long id2=emp2.id;
+
+        ts.add(emp3);
+        ts.add(emp4);
+        ts.add(emp5);
+
+        System.out.println(ts);
+
+    }
+}
+
+
+
+
+
+
+
+
+public class CustomSorting implements Comparator {
+
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 1;
+    }
+}
+
+
+public class Customtresssetsort {
+
+    public static void main(String[] args) {
+
+        CustomSorting as=new CustomSorting();
+
+        TreeSet ts=new TreeSet(as);
+
+        ts.add(1);  //1 c(1) no comparison
+        ts.add(12);// c(1,12)    1,12
+        ts.add(4);//c(12,4)      1,12,4
+        ts.add(7);//c(4,7)      1,12,4,7
+        ts.add(2);//c(7,2)      1,12,4,7,2
+        ts.add(2);//c(2,2)      1,12,4,7,2,2
+
+        System.out.println(ts);
+
+
+    }
+
+
+public class CustomSorting implements Comparator {
+
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 0;
+    }
+}
+
+
+public class Customtresssetsort {
+
+    public static void main(String[] args) {
+
+        CustomSorting as=new CustomSorting();
+
+        TreeSet ts=new TreeSet(as);
+
+        ts.add(1);  //1  no comparison print only[1]
+        ts.add(12);// not other element will be added since it is return 0
+        ts.add(4);
+        ts.add(7);
+        ts.add(2);
+        ts.add(2);
+
+        System.out.println(ts);
+
+
+    }
+
+
+
+package javaclass.Collections;
+
+import java.util.Comparator;
+
+public class CustomSorting implements Comparator {
+
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return -1;
+    }
+}
+
+
+        TreeSet ts1=new TreeSet(as);
+
+        ts1.add(1);  //1 c(1) no comparison
+        ts1.add(12);// c(1,12)    12,1
+        ts1.add(4);//c(12,4)     4,12,1
+        ts1.add(7);//c(4,7)   7,4,12,1
+        ts1.add(2);//c(7,2)     2, 7,4,12,1
+        ts1.add(2);//c(2,2)     2, 2, 7,4,12,1
+
+        System.out.println(ts);
+
+
+    }
+}
+
+Write a program to insert a String Object into tree set where sorting order is reversed of Alphabetical order.
+
+
+package javaclass.Collections;
+
+import java.util.Comparator;
+
+public class City implements Comparator {
+    @Override
+    public int compare(Object o1, Object o2) {
+        String c1= (String)o1;
+        String c2= (String)o2;
+        return c2.compareTo(c1);
+    }
+}
+
+package javaclass.Collections;
+
+import java.util.Comparator;
+import java.util.TreeSet;
+
+public class CityString   {
+    public static void main(String[] args) {
+        City sd=new City();
+
+        TreeSet ts=new TreeSet(sd);
+
+        ts.add("agra");
+        ts.add("banglore");
+        ts.add("delhi");
+        ts.add("chenai");
+
+        System.out.println(ts);
+
+
+
+    }
+
+Write program to insert A String and Stringbuffer into the tree set sorting is incresing length order and if length is same it sort in acending ?
+
+
+
+package javaclass.Collections;
+
+import java.util.Comparator;
+
+public class StringlengthComp implements Comparator {
+    @Override
+    public int compare(Object o1, Object o2) {
+
+       String s1=o1.toString();
+       String s2=o2.toString();
+
+       int l1=s1.length();
+       int l2=s2.length();
+
+       if(l1>l2)
+       {
+           return 1;
+       }
+        else if (l2>l1)
+        {
+            return -1;
+        }
+        else
+        return s1.compareTo(s2);
+    }
+}
+
+
+
+     StringlengthComp sl=new StringlengthComp();
+        TreeSet ts=new TreeSet(sl);
+
+        ts.add(new StringBuffer("agra"));
+        ts.add(new StringBuffer("china"));
+        ts.add("bombay");
+        ts.add(new StringBuffer("delhi"));
+        System.out.println(ts);
+
+
+Important point :- for predefined comparable classes( which has already implemented comparable interface) such as String class, wrapper classes,String buffer for these classes defult natural sorting order is available.
+		   
+		    Comparable interface perform sorting order with the help of compare to.
+
+			---> If we are not satisfied default natural sorting order then we can deafine our customize sorting order as per requrment by implementing comprator interface.'
+			----> for our own customr classes such Student class , Customer class , Employee class  we can perform either default custom sorting or customize sorting by using
+                         comprable or comprator interface respectively
+			   
+
+
+package javaclass.Collections;
+
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class Employe implements Comparable{
+    Long id;
+    String name;
+
+    public Employe(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+       Long id1=this.id;
+        Employe obj2 =(Employe) o;
+
+        Long id2=obj2.id;
+        if(id1>id2)
+        {
+            return 1;
+        }
+        else if (id1<id2)
+        {
+            return -1;
+        }
+        else
+            return 0;
+    }
+
+    @Override
+    public String toString() {
+        return id+" "+name;
+    }
+
+    public static void main(String[] args) {
+      Employe emp1=new Employe(1L,"emp1");
+        Employe emp2=new Employe(2L,"emp2");
+        Employe emp3=new Employe(3L,"emp3");
+        Employe emp4=new Employe(8L,"emp8");
+        Employe emp5=new Employe(3L,"emp3");
+
+        TreeSet ts=new TreeSet();
+        ts.add(emp1);
+        ts.add(emp2);
+        ts.add(emp3);
+        ts.add(emp4);
+        ts.add(emp5);
+
+        System.out.println(ts);
+
+    }
+}
+
+
+
+MAP:- It is interface 
+
+HashMap:- it is class which implement Map
+
+
+important method
+  public abstract int size(); will give size of haspmap
+  public abstract boolean isEmpty(); will check hashmap is empty or not 
+  public abstract boolean containsKey(java.lang.Object); will check a key avaialble or not based on specified key
+  public abstract boolean containsValue(java.lang.Object); will check a value avaialble or not based on specified value
+  public abstract V get(java.lang.Object); return the associated value of specified key.
+  public abstract V put(K, V);
+  public abstract V remove(java.lang.Object);
+  public abstract void putAll(Map obj);
+  public abstract void clear(); for removing all the entry from hashmap.
+  public abstract java.util.Set<K> keySet(); Collection views of map
+  public abstract java.util.Collection<V> values(); Collection views of map
+  public abstract java.util.Set<java.util.Map$Entry<K, V>> entrySet(); Collection views of map
+  public abstract boolean equals(java.lang.Object);
+  public abstract int hashCode();
+  public default V getOrDefault(java.lang.Object, V);
+  public default void forEach(java.util.function.BiConsumer<? super K, ? super V>);
+  public default void replaceAll(java.util.function.BiFunction<? super K, ? super V, ? extends V>);
+  public default V putIfAbsent(K, V);
+  public default boolean remove(java.lang.Object, java.lang.Object); will reamove entry associated with the specified keys.
+  public default boolean replace(K, V, V);
+  public java.util.Set<java.util.Map$Entry<K, V>> entrySet();  Collection views of map
+
+
+
+interface Map{
+
+interface Entry{
+
+ public abstract K getKey();
+  public abstract V getValue();
+  public abstract V setValue(V);
+
+
+
+//these are entry specific method can only be apply on entry object.
+
+
+}
+
+}
+
+
+
+COnstrutuor of HashMap
+
+  public java.util.HashMap(int, float);
+  public java.util.HashMap(int);
+  public java.util.HashMap(); deafult size 16
+  public java.util.HashMap(java.util.Map);
+
+
+HashTable :- --->both key and value can not be null.
+	     --->key cannot be dublicated but value can be dublicated.
+
+
+ public java.util.Hashtable(int, float);
+  public java.util.Hashtable(int);
+  public java.util.Hashtable();  --> default size 11 intial load factor 0.75.
+  public java.util.Hashtable(java.util.Map<? extends K, ? extends V>);
+
+
+
+package javaclass.Collections;
+
+import java.util.Objects;
+
+public class EmployeeHash {
+    int id;
+
+    @Override
+    public String toString() {
+        return "EmployeeHash{" +
+                "id=" + id +
+                '}';
+    }
+
+
+
+
+    @Override
+    public int hashCode() {
+        return id%9;
+    }
+
+
+
+
+    public EmployeeHash(int id) {
+        this.id = id;
+    }
+}
+
+package javaclass.Collections;
+
+import java.util.Hashtable;
+
+public class HashtableCustom {
+
+
+    public static void main(String[] args) {
+
+
+//       EmployeeHash employeeHash1=new EmployeeHash(1);
+//        EmployeeHash employeeHash2=new EmployeeHash(54);
+//        EmployeeHash employeeHash3=new EmployeeHash(23);
+//        EmployeeHash employeeHash4=new EmployeeHash(13);
+//
+//       Hashtable ht=new Hashtable();
+//       ht.put(1,employeeHash1);
+//        ht.put(2,employeeHash2);
+//        ht.put(3,employeeHash3);
+//        ht.put(4,employeeHash4);
+
+     //   System.out.println(ht);
+
+
+
+        Hashtable ht1=new Hashtable();
+        ht1.put(new EmployeeHash(1),"aman");
+        ht1.put(new EmployeeHash(12),"ssd");
+        ht1.put(new EmployeeHash(41),"sas");
+        ht1.put(new EmployeeHash(22),"asa");
+
+        System.out.println(ht1);
+
+
+
+    }
+}
+
+
+Properties :-
+
+-->  public java.util.Properties();
+  public java.util.Properties(int);
+  public java.util.Properties(java.util.Properties);
+
+importatnt method
+
+  public java.lang.String getProperty(java.lang.String);
+  public java.lang.String getProperty(java.lang.String, java.lang.String);
+  public synchronized java.lang.Object setProperty(java.lang.String, java.lang.String);
+  public java.util.Enumeration<?> propertyNames();
+
+  public synchronized void load(java.io.Reader) throws java.io.IOException;
+  public synchronized void load(java.io.InputStream) throws java.io.IOException;
+  public void store(java.io.Writer, java.lang.String) throws java.io.IOException;
+  public void store(java.io.OutputStream, java.lang.String) throws java.io.IOException;
+
+
+
+
+
+HashCode method type:- for every object jvm genrates a unique code, this unique code is called hashcode.Object class has a method called hashcode()
+    		and if we do not over ride hashcode method then by default object class hashcode method is called, this object class hashcode is genrated
+on the basis of address or refrence of the object but it is not actaul address or refrence of object.
+
+for ex: if the address of object a is 2024 then hashcode may be 2024 /5 or multiply by 5.
+
+
+purpose of hashcode-JVM will use hashcode will storing objects in hashing related datastructure such as hashtable,hashmap,hashset.
+
+Advantage of using Hashcode-the main advantage of hashcode based storing is searching operations.
+        					time complexcity O{1}. best searching algorithm
+						linear search:-O{n}.
+						Bineary search:-Olog{n^2}.
+
+Indentity Hashmap:- it uses == method for comparing   key hashcode while normal hashmap uses equals method for comparing key uniquness..
+
+package javaclass.Collections;
+
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+
+public class HashMap15sep {
+
+    public static void main(String[] args) {
+
+        HashMap  hashMap=new HashMap();
+
+        Integer s=new Integer(21);
+        Integer s1=new Integer(21);
+
+        hashMap.put(s,"aman");
+        hashMap.put(s1,"asas");
+
+        System.out.println(hashMap);   //{21=asas}  equals() is called that is why key is getting dublicate
+
+
+        IdentityHashMap identityHashMap=new IdentityHashMap();
+        identityHashMap.put(s,"asa");
+        identityHashMap.put(s1,"ssd");
+
+        System.out.println(identityHashMap);   {21=asa, 21=ssd}  here == operator is used , refrence is being compared.
+        System.out.println(s.equals(s1));// genrally it is used compare the content.
+        System.out.println(s==s1);// genrally == operator is compare the refrence of object
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+WeakHashmap:-
+
+package javaclass.Collections;
+
+public class Emplye1 {
+ int a;
+
+    public Emplye1(int a) {
+        this.a = a;
+    }
+    @Override
+    public String toString()
+    {
+     return "aman";
+
+    }
+    @Override
+    protected void finalize()
+    {
+        System.out.println("finalize method is called");
+    }
+
+
+package javaclass.Collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Hmap {
+
+    public static void main(String[] args) throws InterruptedException {
+     Emplye1 emplye1=new Emplye1(1);
+        HashMap hashMap=new HashMap();
+        hashMap.put(emplye1,"aa");
+
+        System.out.println(hashMap);
+
+        hashMap=null;
+        System.gc();
+        Thread.sleep(3000);
+        System.out.println(hashMap);
+
+    }
+}
+
+
+output {aman=aa}
+null
+
+
+
+Sorted Map :- Value are inserted in form of key.
+		Some of the important method of sortedMap
+			firstKey()
+			lastKey()
+			headmap()
+			tailmap()
+
+Submap():-
+COmparator:-
+
+
+package javaclass.Collections;
+
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+public class SortedMapexe {
+    public static void main(String[] args) {
+
+        SortedMap sortedMap=new TreeMap() ;
+        sortedMap.put(11,"aman");
+        sortedMap.put(22,"swaas");
+        sortedMap.put(3,"sassasa");
+
+        sortedMap.put(41,"an");
+        sortedMap.put(49,"swasdas");
+        sortedMap.put(33,"sasa");
+        sortedMap.put(6,"amadaan");
+        sortedMap.put(2,"swdddaas");
+        sortedMap.put(5,"saddaajssasa");
+      //  System.out.println(sortedMap);
+
+
+//        System.out.println(  sortedMap.firstKey());
+//        System.out.println(  sortedMap.lastKey());
+      //  System.out.println(sortedMap.headMap(11));  //it will return value less than the key value specified as a argument
+        // all the value less than 11 will be printed.
+      System.out.println(  sortedMap.tailMap(22));//it will return the value greater than or equal to key specified.
+
+
+        System.out.println(sortedMap.subMap(3,33)); //it will return the value greater than or equal to  first parameter key and less than second parameter.
+
+
+
+
+
+
+    }
+}
+
+
+
+TreeMap:- underline dataStruture treemap red and black tree.
+
+	.insertion order is not preserved
+. key cannot be null but value can be null.
+.for default sorting element need to be homogenous.
+
+
+   public java.util.TreeMap();
+  public java.util.TreeMap(java.util.Comparator<? super K>);
+  public java.util.TreeMap(java.util.Map<? extends K, ? extends V>);
+  public java.util.TreeMap(java.util.SortedMap<K, ? extends V>);
+
+
+
+
+
+
+
+
+2 branch of collection
+
+
+Queue(Interface):-if you want represent a group of object as a individual unit prior to processing,before sending an email 
+	or a sms via mail server (SMTP) and mobile network respectivly.We have to Store it some data Structure that
+	is queue,the order in which we added a mobile number or email in same order message or email should be 
+        delivered for this FIFO is required and that is provided by the queue.
+
+	Genrally Queue follows FIFO but based our requerment  we can also implement our priority queue.
+
+from 1.5 version LinkedList also implement queue interface.
+
+Linked List based implementation of queue always follow fifo.
+
+top element queue is knows head
+
+
+  public abstract boolean add(E); 
+  public abstract boolean offer(E); it use to add object into queue.
+  public abstract E remove(); it remove the head element and return the head element. if the queue is empty no such element exception will return.
+  public abstract E poll(); it remove the head element and return the head element. if the queue is empty  return null.
+  public abstract E element();it return the head element . if the queue is empty no such element exception will return.
+  public abstract E peek(); return the head element if the queue is empty it will return null.
+
+Priority Queue:-
+
+first direct implementation class of queue is priority queue.
+it is used prior to processing.
+deafult natural sorting order or custom sorting order both can be used, null value are not allowed.
+if we want use defualt natural sorting order then in that case element should be homogenuous.
+
+
+ public java.util.PriorityQueue();
+  public java.util.PriorityQueue(int);
+  public java.util.PriorityQueue(java.util.Comparator<? super E>);
+  public java.util.PriorityQueue(int, java.util.Comparator<? super E>);
+  public java.util.PriorityQueue(java.util.Collection<? extends E>);
+  public java.util.PriorityQueue(java.util.PriorityQueue<? extends E>);
+  public java.util.PriorityQueue(java.util.SortedSet<? extends E>);
+
+
+package javaclass.Collections.Queue;
+
+import java.util.PriorityQueue;
+
+public class PiorityQueueEx  {
+
+    public static void main(String[] args) {
+
+        PriorityQueue priorityQueue=new PriorityQueue();
+      //  System.out.println(priorityQueue.remove());
+//       System.out.println(priorityQueue.element());
+ //       System.out.println(priorityQueue.peek());
+ //       System.out.println(priorityQueue.poll());
+
+        priorityQueue.add(0);
+        priorityQueue.add(1);
+        priorityQueue.add(2);
+        priorityQueue.add(4);
+        priorityQueue.add(5);
+        priorityQueue.add(6);
+        System.out.println(priorityQueue);     
+[0, 1, 2, 4, 5, 6]  //  
+        priorityQueue.remove(0);
+
+        System.out.println(priorityQueue);
+
+[1, 4, 2, 6, 5]// this is not our expected output some operating system does not support priority queue or priority thread.
+
+
+
+
+
+
+
+
+
+
+
+
+Genric Collection :- Suppose our requirement is store string type of value.
+
+String a[]=new String[3];
+a[0]="AMAN";
+a[1]="AMAN srivatava";
+a[2]=new Integer(14); // it will through compile time error
+
+Array is type safe data Structure in which we can only store specified types of data.
+
+ArratList list1=new ArrayList();
+list1.add("aman");
+list1.add("sri");
+list1.add(new Interger(20)); // it not through compile time error
+
+there is not type safety in case of array list beacuse we are not sure which data to be inserted.beacuse 
+add method of array list class take object type of parameter.
+
+
+
+
+
+package javaclass.Genric;
+
+import java.util.ArrayList;
+
+public class genrricrequirement {
+    public static void main(String[] args) {
+        String a[]=new String[3];
+        a[0]="AMAN";
+        a[1]="AMAN srivatava";
+//        a[2]=new Integer(14); // it will through compile time error
+
+      //  Array is type safe data Structure in which we can only store specified types of data.
+
+        ArrayList list1=new ArrayList();
+        list1.add("aman");
+        list1.add("sri");
+        list1.add(2); // it not through compile time error
+
+        for (Object obj:  list1)
+              {
+                  System.out.println(obj);
+        }
+        String n1= (String) list1.get(0);
+        String n2= (String) list1.get(1);
+        String n3= (String) list1.get(2); //whenever we use collection typecasting is required.but in case of string there is no
+        //need of type casting
+        //in case of collection there are two probelm arrises
+        //1-there is not type safety.
+        //2-we have to type cast( type casting is required in case of collection), to solve this probelm genric was introduced
+        //java 1.5 onwards.
+
+
+
+
+
+        System.out.println(n1);
+        System.out.println(n2);
+        System.out.println(n3);
+
+
+
+
+        ArrayList<String> arrayList=new ArrayList<String>();
+
+        arrayList.add("aman");
+       // arrayList.add(2);
+       arrayList.add("ssss") ;
+
+
+        for (String s:arrayList
+             ) {
+            System.out.println(arrayList);
+        }
+
+    }
+
+
+
+}
+
+
+
+
+
+                                                 ArrayList<Datatype> list=new Arraylist<>();                          ArrayList list=new   ArrayList();
+						
+						This is genric version of array list object                           non genric version of array object i.e collection
+						type-safe.								not-type safe.
+						type casting is not required 						type-casting is required.
+ 
+
+
+
+List<int> obj=new ArrayList<>();
+
+error-->
+						
+
+java: unexpected type
+  required: reference
+  found:    int
+
+
+
+
+the value we will pass <> will classtype or interface type.
+
+
+Internal Implementaion of Genric 
+//non genric implementaion of array list
+Class ArrayList
+{
+object add(Object obj)
+{
+//just beacuse of this mehtod array list is not type safe, because it add elements and takes argument as a Object type 
+}
+
+Object get(int index)
+{
+//just beacuse of this mehtod we need to perform type-casting corresponding to associated data as this method return type is object. 
+}
+
+
+}
+
+//
+
+Class ArrayList<T>
+{
+T add(T t)
+{
+//just beacuse of this mehtod array list is  type safe, because type is decided at runtime becuase object is created at runtime.
+}
+
+T get(int index)
+{
+//just beacuse of this mehtod there is no need to perform type-casting because actual data-type will be available at runtime. 
+}
+
+
+}
+
+
+ArrayList<String> alist=new ArrayList<String>();
+
+
+Class ArrayList<String>
+{
+String add(String t)
+{
+//just beacuse of this mehtod array list is not type safe, because it add elements and takes argument as a Object type 
+}
+
+String get(int index)
+{
+//just beacuse of this mehtod we need to perform type-casting corresponding to associated data as this method return type is object. 
+}
+
+
+}
+
+
+As per our requirement we can also define user define class or custom class a genric class.
+
+Class Test<T>
+{
+
+
+
+}
+
+
+
+
+Test<Student> slist=new Test<Student>();  
+Test<Employee> slist=new Test<Employe>();
+
+
+
+
+class Employe<T>
+{
+T i;
+
+Employe(T i)
+{
+this.i=i;
+
+} 
+
+void show()
+{
+System.out.prinln("the type of object"+(i.getclass().getname()));
+
+}
+
+public T getData()
+{
+return i;
+}
+
+public void setData()
+{
+this.i=10;
+}
+
+
+
+}
+
+
+
+
+Unbounded Genric and Bounded Genric
+
+class Employe<T>
+{
+public void calculator()
+{
+T n1;
+T n2;
+
+System.out.println(n1+n2);
+System.out.println(n1*n2);
+System.out.println(n1-n2);
+System.out.println(n1/n2);
+}
+
+
+}
+
+this is unbounded genric because type parameter is not bounded to any specific range.
+
+
+Bounded Genric can be created using extends keyword.
+
+class Student<T extends R> // where R is the Range.
+{
+
+}
+
+package javaclass.Genric;
+
+public class EmployeUnbounded<T extends Number> {
+
+        public void calculator(T a,T b)
+        {
+
+
+
+        }
+
+
+    public static void main(String[] args) {
+        EmployeUnbounded<Integer> s=new EmployeUnbounded<>();
+        EmployeUnbounded<String> s1=new EmployeUnbounded<>();  // it will show and error beacuse it is bounded to Number.
+
+
+
+Multiple bounded genric :-
+
+for example their could be a class that implements seriable interface and extends number class.
+
+
+
+Genric wild Character:-
+
+public class GenricwildCh {
+
+    public static void main(String[] args) {
+        ArrayList<Integer> arrayList=new ArrayList<>();
+
+		arraylist.addvalueto(2);
+
+        ArrayList<Float> arrayList1=new ArrayList<>();
+		arraylist.addvalueto(2.31F);
+        ArrayList<Double> arrayList2=new ArrayList<>();
+		arraylist.addvalueto(2224.32);
+
+ ArrayList<Employe> arrayList2=new ArrayList<>();
+		arraylist.addvalueto(2224.32);
+    }
+
+public static void addvalueto(ArrayList<Integer> alist){
+
+
+}
+public static void addvalueto(ArrayList<Float> alist){
+
+
+}
+public static void addvalueto(ArrayList<Double> alist){
+
+
+}
+
+public static void addvalueto(ArrayList<Employe> alist){
+
+
+}
+}
+
+Instead of using these method we need to define wild cards.  (?)
+
+
+public static void addvalueto(ArrayList<?> alist){
+
+
+}
+
+
+in genric terminology the question mark(?)( wild card) unknown type it can be used in diffrent situation 
+as a type paramter of data field and with local veriable and some times can be used as a return type but it is
+not recommended.
+it is better programming practice to be specific is return type.
+
+
+Unbounded wild cards-List<?> it is an example of unbounded wild card.
+this list is of unknown type.
+
+it can be usefull if we are writing a method that can be implemented usng the functionality provided in the object class.
+when the code is using method in the genric that does not depend upon type parameter.
+it is often used beacuse most of the method do not depend T.

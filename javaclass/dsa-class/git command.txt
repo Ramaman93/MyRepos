@@ -1,0 +1,32 @@
+git status-current status working directory.
+git init-Intialize the current directoy.
+$ git config --global user.email :- for check email of the user.
+$ git config --global user.name :- for checking the name of user.
+
+$ mkdir gitfirstfolder:- for creating a folder
+$ notepad abc.txt:- for opening the text file.
+$ touch abc.txt:- for creating txt file.
+$ git add abc.txt :- to add file to stage we use git add filename or for adding all file to stage  git add -A.green color is Stage and red color stage
+                     once we add file it get green and if we modify the someting in that file and check git status it will create two file old one and modified
+			one if we  again add the file it get only the modified version.
+
+
+after adding we commit the changes to master
+aman@DESKTOP-QNN41UO MINGW64 /e/New folder (2) (master)
+$ git commit -m "commit message"
+
+
+if suppose file get unwanted (deletion or modification) we use 
+$ git checkout abc.txt
+it will regain the original file.
+
+
+before pushing any file to master
+$ git branch -M master
+$ git remote add origin https://github.com/amansr007/htmlpages.git
+then we will push
+
+$ git push -u origin master
+ 
+
+
